@@ -1,0 +1,30 @@
+/* components/_header.scss */
+.header {
+    color: $default-color;
+    position: fixed; top: 0; left: 0; bottom: 0;
+    padding: 0 15px; overflow-y: auto; z-index: 997;
+    min-width: 200px; transition: all .3s ease-in-out;
+
+    &.header-show { left: 0; }
+
+    .header-toggle {
+      position: fixed; top: 15px; right: 15px; z-index: 9999;
+      width: 40px; height: 40px;
+      background: $accent-color; color: $contrast-color;
+      font-size: 22px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background-color .3s;
+      &:hover { background: color-mix(in srgb, $accent-color 90%, white 15%); }
+    }
+
+    @include respond-max(lg) {
+      background: $background-color;
+      border-right: 1px solid color-mix(in srgb, $default-color, transparent 90%);
+      width: 300px; left: -100%;
+    }
+
+    @media (min-width: 1200px) and (max-width: 1600px) {
+      ~ main { margin-left: 160px; }
+      ~ main .hero { margin-left: -160px; width: 100vw; }
+    }
+  }

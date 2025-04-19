@@ -1,0 +1,8 @@
+/* modules/_skills.scss */
+.skills {
+    .progress { height: 60px; background: none; }
+    .skill { color: $heading-color; font-family: $heading-font; font-weight: 600; text-transform: uppercase; margin: 0 0 6px; }
+    .val { float: right; }
+    .progress-bar-wrap { background: color-mix(in srgb, $default-color, transparent 90%); height: 10px; }
+    .progress-bar { width: 1px; height: 10px; background: $accent-color; transition: 0.9s; }
+  }

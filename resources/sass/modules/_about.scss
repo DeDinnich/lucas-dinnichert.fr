@@ -1,0 +1,12 @@
+/* modules/_about.scss */
+.about {
+    .content {
+      h2 { font-size: 24px; font-weight: 700; }
+      ul { list-style: none;
+        li { margin-bottom: 20px; display: flex; align-items: center;
+          i { font-size: 16px; margin-right: 5px; color: $accent-color; }
+          strong { margin-right: 10px; }
+        }
+      }
+    }
+  }

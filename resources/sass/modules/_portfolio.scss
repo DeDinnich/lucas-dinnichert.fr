@@ -1,0 +1,34 @@
+/* modules/_portfolio.scss */
+.portfolio {
+    .portfolio-filters {
+      list-style: none; text-align: center; margin: 0 auto 20px;
+      li { display: inline-block; padding: 8px 20px 10px; margin-bottom: 5px;
+        font-family: $heading-font; font-size: 15px; font-weight: 500;
+        border-radius: 50px; transition: .3s; cursor: pointer;
+        &:hover, &.filter-active { background: $accent-color; color: $contrast-color; }
+        &:first-child { margin-left: 0; }
+        &:last-child { margin-right: 0; }
+      }
+      @include respond-max(xs) { li { font-size:14px; margin-bottom:10px; } }
+    }
+    .portfolio-item {
+      position: relative; overflow: hidden;
+      .portfolio-info {
+        position: absolute; left:12px; right:12px; bottom:-100%; z-index:3;
+        padding:15px; background: color-mix(in srgb, $background-color, transparent 10%);
+        transition: .5s;
+        h4 { font-size:18px; font-weight:600; padding-right:50px; }
+        p { font-size:14px; margin-bottom:0; padding-right:50px;
+          color: color-mix(in srgb, $default-color, transparent 30%);
+        }
+        .preview-link, .details-link {
+          position: absolute; top:calc(50% - 14px); font-size:24px; color: color-mix(in srgb, $default-color, transparent 30%);
+          transition: .3s;
+        }
+        .details-link { right:14px; font-size:28px; }
+        .preview-link { right:50px; }
+        .preview-link:hover, .details-link:hover { color: $accent-color; }
+      }
+      &:hover .portfolio-info { opacity:1; bottom:0; }
+    }
+  }

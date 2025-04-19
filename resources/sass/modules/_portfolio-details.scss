@@ -1,0 +1,41 @@
+/* modules/_portfolio-details.scss */
+.portfolio-details {
+    .portfolio-details-slider img { width: 100%; }
+    .swiper-button-prev, .swiper-button-next { width:48px;height:48px;
+      &:after { font-size:24px; background: rgba(0,0,0,0.15); color: rgba(255,255,255,0.8); border-radius:50%;width:48px;height:48px;display:flex;align-items:center;justify-content:center;transition:.3s;
+        &:hover { background: rgba(0,0,0,0.3); }
+      }
+    }
+    @include respond-max(xs) {
+      .swiper-button-prev, .swiper-button-next { display:none; }
+    }
+    .swiper-pagination { margin-top:20px;
+      .swiper-pagination-bullet { width:10px;height:10px;background:color-mix(in srgb, $default-color, transparent 85%);opacity:1; }
+      .swiper-pagination-bullet-active { background:$accent-color; }
+    }
+    .portfolio-info {
+      h3 { font-size:22px;font-weight:700; margin-bottom:20px; padding-bottom:20px; position:relative;
+        &:after { content:""; position:absolute; bottom:0; width:50px; height:3px; background:$accent-color; }
+      }
+      ul { list-style:none; font-size:15px;
+        li { display:flex; flex-direction:column; padding-bottom:15px;
+          strong { text-transform:uppercase; font-weight:400; color: color-mix(in srgb, $default-color, transparent 50%); font-size:14px; }
+        }
+      }
+      .btn-visit { display:inline-block; padding:8px 40px; border-radius:50px; background:$accent-color; color:$contrast-color; transition:.3s;
+        &:hover { background: color-mix(in srgb, $accent-color, transparent 20%); }
+      }
+    }
+    .portfolio-description {
+      h2 { font-size:26px;font-weight:700; margin-bottom:20px; }
+      p { margin:0; padding:0; }
+      .testimonial-item { background: color-mix(in srgb, $default-color, transparent 97%); padding:30px; margin-bottom:50px; position:relative;
+        .testimonial-img { float:left; width:90px;border-radius:50%;border:6px solid $background-color;margin-right:10px; }
+        h3 { font-size:18px;font-weight:bold;padding-top:20px;margin:15px 0 5px; }
+        h4 { font-size:14px;color:#6c757d;margin:0; }
+        .quote-icon-left, .quote-icon-right { font-size:26px;color: color-mix(in srgb, $accent-color, transparent 50%);line-height:0;position:relative; }
+        .quote-icon-right { transform:scale(-1,-1);top:10px;right:-5px; }
+        p { font-style:italic; margin:0 0 15px 0; padding:0; }
+      }
+    }
+  }

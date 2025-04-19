@@ -1,0 +1,26 @@
+/* modules/_contact.scss */
+.contact {
+    .info-item { display:flex; align-items:center;
+      i { font-size:20px; width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;
+        background: color-mix(in srgb, $accent-color, transparent 92%); color: $accent-color; transition:.3s; margin-right:15px;
+        &:hover { background:$accent-color; color:$contrast-color; }
+      }
+      h3 { font-size:18px;font-weight:700; margin-bottom:5px; }
+      p { font-size:14px; margin-bottom:0; }
+      &+ & { margin-top:40px; }
+    }
+    .php-email-form { height:100%;
+      input[type=text], input[type=email], textarea {
+        width:100%; padding:10px 15px; font-size:14px; border-radius:0;
+        background: color-mix(in srgb, $background-color, transparent 50%);
+        border:1px solid color-mix(in srgb, $default-color, transparent 80%);
+        &:focus { border-color: $accent-color; }
+        &::placeholder { color: color-mix(in srgb, $default-color, transparent 70%); }
+      }
+      button[type=submit] {
+        padding:10px 30px; border:0; border-radius:50px;
+        background:$accent-color; color:$contrast-color; transition:.4s;
+        &:hover { background: color-mix(in srgb, $accent-color, transparent 25%); }
+      }
+    }
+  }

@@ -1,0 +1,18 @@
+/* modules/_resume.scss */
+.resume {
+    .resume-title { font-size: 26px; font-weight: 700; margin: 20px 0; color: $heading-color; }
+    .resume-item {
+      position: relative; padding: 0 0 20px 20px; border-left: 2px solid $accent-color; margin-top: -2px;
+      &::before { content: ""; position: absolute; width: 16px; height: 16px; border-radius: 50%; left: -9px; top: 0;
+        background: $background-color; border: 2px solid $accent-color;
+      }
+      h4 { font-size: 18px; font-weight: 600; line-height: 18px; text-transform: uppercase;
+        color: color-mix(in srgb, $default-color, transparent 20%); margin-bottom: 10px;
+      }
+      h5 { font-size: 16px; font-weight: 600; padding: 5px 15px; display: inline-block; margin-bottom: 10px; }
+      ul { padding-left: 20px;
+        li { padding-bottom: 10px; }
+      }
+      &:last-child { padding-bottom: 0; }
+    }
+  }

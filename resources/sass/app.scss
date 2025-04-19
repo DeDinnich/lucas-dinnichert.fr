@@ -1,8 +1,29 @@
-// Exemple de styles
-$primary-color: #072a35;
+@import "abstracts/variables";
+@import "abstracts/mixins";
 
-body {
-    background-color: $primary-color;
-    font-family: Arial, sans-serif;
-    color: white;
-}
+@import "base/reset";
+@import "base/typography";
+@import "base/utilities";
+
+@import "components/header";
+@import "components/navmenu";
+@import "components/footer";
+@import "components/preloader";
+@import "components/scroll-top";
+@import "components/php-email-form";
+
+@import "layout/hero";
+@import "layout/page-title";
+@import "layout/sections";
+
+@import "modules/about";
+@import "modules/stats";
+@import "modules/skills";
+@import "modules/resume";
+@import "modules/portfolio";
+@import "modules/services";
+@import "modules/testimonials";
+@import "modules/contact";
+@import "modules/portfolio-details";
+@import "modules/service-details";
+@import "modules/starter-section";

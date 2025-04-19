@@ -1,0 +1,17 @@
+/* modules/_testimonials.scss */
+.testimonials {
+    .testimonials-carousel, .testimonials-slider { overflow:hidden; }
+    .testimonial-item {
+      .testimonial-content { border-left:3px solid $accent-color; padding-left:30px; }
+      .testimonial-img { border-radius:50%; border:4px solid $background-color; margin:0 auto; }
+      h3 { font-size:20px; font-weight:bold; margin:10px 0 5px; }
+      h4 { font-size:14px; color: color-mix(in srgb, $default-color, transparent 40%); margin:0 0 10px; }
+      .stars i { color:#ffc107; margin:0 1px; }
+      .quote-icon-left, .quote-icon-right { font-size:26px; color: color-mix(in srgb, $accent-color, transparent 50%); line-height:0; position:relative; }
+      .quote-icon-right { transform: scale(-1, -1); top:10px; }
+      p { font-style:italic; }
+    }
+    .swiper-pagination { margin-top:30px; .swiper-pagination-bullet { width:12px;height:12px;background:color-mix(in srgb, $default-color, transparent 85%);opacity:1; }
+      .swiper-pagination-bullet-active { background:$accent-color; }
+    }
+  }

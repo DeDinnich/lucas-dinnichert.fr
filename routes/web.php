@@ -1,26 +1,12 @@
 <?php
 
-use App\Events\ChatMessageSent;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\indexController;
+use App\Http\Controllers\portfolioController;
+use App\Http\Controllers\serviceController;
+use App\Http\Controllers\starterController;
 
-Route::post('/send-message', function (Request $request) {
-    $request->validate([
-        'username' => 'required|string|max:255',
-        'message' => 'required|string|max:1000',
-    ]);
-
-    Log::info('📩 Message reçu par Laravel', [
-        'username' => $request->username,
-        'message' => $request->message
-    ]);
-
-    event(new ChatMessageSent($request->username, $request->message));
-
-    return response()->json(['success' => true]);
-});
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [indexController::class, 'index'])->name('index');
+Route::get('/portfolio', [portfolioController::class, 'index'])->name('portfolio');
+Route::get('/services', [serviceController::class, 'index'])->name('services');
+Route::get('/starter', [starterController::class, 'index'])->name('starter');

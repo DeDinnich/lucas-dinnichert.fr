@@ -1,0 +1,12 @@
+/* modules/_stats.scss */
+.stats {
+    i { background: $accent-color; color: $contrast-color;
+      width: 54px; height: 54px; font-size: 24px; border-radius: 50px;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .stats-item {
+      margin-top: 10px; position: relative; text-align: center;
+      span { font-size: 36px; font-weight: 700; color: color-mix(in srgb, $default-color, transparent 20%); display: block; }
+      p { font-size: 16px; color: color-mix(in srgb, $default-color, transparent 50%); padding: 0; margin: 0; }
+    }
+  }

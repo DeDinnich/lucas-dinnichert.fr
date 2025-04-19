@@ -1,0 +1,21 @@
+@import "../abstracts/variables";
+
+body {
+  font-family: $default-font;
+  color:        $default-color;
+  background:   $background-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $heading-font;
+  color:       $heading-color;
+}
+
+a {
+  color:       $accent-color;
+  text-decoration: none;
+  transition: 0.3s;
+  &:hover {
+    color: color-mix(in srgb, $accent-color, transparent 25%);
+  }
+}

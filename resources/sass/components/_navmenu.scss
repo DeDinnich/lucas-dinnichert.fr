@@ -1,0 +1,22 @@
+/* components/_navmenu.scss */
+.navmenu {
+    ul { list-style: none; padding-bottom: 20px; width: 140px; }
+    a, a:focus {
+      display: flex; align-items: center; padding: 10px 10px;
+      margin-bottom: 8px; font-family: $nav-font; font-size: 15px;
+      color: $nav-color;
+      background: color-mix(in srgb, $default-color, transparent 92%);
+      border-radius: 50px; height: 56px; width: 100%; overflow: hidden;
+      transition: .3s;
+      i { font-size: 20px; }
+      span { padding: 0 5px 0 7px; }
+      &:hover, &.active, li:hover>a {
+        color: $contrast-color; background: $nav-hover-color;
+        max-width: 100%; span { display: block; }
+      }
+    }
+    @media (min-width: 992px) {
+      a { max-width: 56px; }
+      span { display: none; }
+    }
+  }
