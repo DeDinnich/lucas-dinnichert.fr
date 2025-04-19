@@ -1,0 +1,6 @@
+2025-01-30 17:02:09,780 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-01-30 17:02:09,781 INFO supervisord started with pid 1
+2025-01-30 17:04:00,235 WARN received SIGTERM indicating exit request
+2025-01-30 17:06:21,276 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-01-30 17:06:21,277 INFO supervisord started with pid 1
+2025-01-30 17:10:00,847 WARN received SIGTERM indicating exit request
