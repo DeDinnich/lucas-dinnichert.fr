@@ -1,8 +1,36 @@
 /* modules/_skills.scss */
-.skills {
-    .progress { height: 60px; background: none; }
-    .skill { color: $heading-color; font-family: $heading-font; font-weight: 600; text-transform: uppercase; margin: 0 0 6px; }
-    .val { float: right; }
-    .progress-bar-wrap { background: color-mix(in srgb, $default-color, transparent 90%); height: 10px; }
-    .progress-bar { width: 1px; height: 10px; background: $accent-color; transition: 0.9s; }
+.skills .progress {
+    height: 60px;
+    display: block;
+    background: none;
+    border-radius: 0;
+  }
+
+  .skills .progress .skill {
+    color: var(--heading-color);
+    padding: 0;
+    margin: 0 0 6px 0;
+    text-transform: uppercase;
+    display: block;
+    font-weight: 600;
+    font-family: var(--heading-font);
+  }
+
+  .skills .progress .skill .val {
+    float: right;
+    font-style: normal;
+  }
+
+  .skills .progress-bar-wrap {
+    background: rgba(0, 0, 0, 0.1);  /* remplace color-mix pour compatibilité */
+    height: 10px;
+    overflow: hidden;                  /* pour masquer le débordement */
+    border-radius: 5px;
+  }
+
+  .skills .progress-bar {
+    width: 0;                          /* valeur initiale à 0 */
+    height: 10px;
+    transition: width 0.9s ease;
+    background-color: var(--accent-color, #0d6efd) !important;
   }

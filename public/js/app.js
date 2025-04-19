@@ -1,227 +1,264 @@
+// assets/js/main.js
 (function() {
     "use strict";
 
-    /**
-     * Header toggle
-     */
-    const headerToggleBtn = document.querySelector('.header-toggle');
+    // ────────────────────────────────────────────────────────
+    // Integration Checker
+    console.log("🔍 Intégration Checker chargé...");
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1️⃣ Vérif CSS
+      [
+        { name: "Bootstrap CSS",       pattern: "bootstrap.min.css" },
+        { name: "Bootstrap Icons CSS", pattern: "bootstrap-icons.css" },
+        { name: "AOS CSS",             pattern: "aos.css" },
+        { name: "GLightbox CSS",       pattern: "glightbox.min.css" },
+        { name: "Swiper CSS",          pattern: "swiper-bundle.min.css" },
+        { name: "Main CSS",            pattern: "app.css" }
+      ].forEach(lib => {
+        const loaded = Array.from(document.styleSheets).some(ss =>
+          ss.href && ss.href.includes(lib.pattern)
+        );
+        console.log(`${lib.name}: ${loaded ? "✅ chargé" : "❌ MANQUANT"}`);
+      });
 
+      // 2️⃣ Vérif JS
+      [
+        { name: "Bootstrap JS",    test: () => typeof bootstrap !== "undefined" },
+        { name: "PHP Email Form",  test: () => typeof validate === "function" },
+        { name: "AOS",             test: () => typeof AOS !== "undefined" },
+        { name: "Typed.js",        test: () => typeof Typed !== "undefined" },
+        { name: "PureCounter",     test: () => typeof PureCounter === "function" },
+        { name: "Waypoint",        test: () => typeof Waypoint !== "undefined" },
+        { name: "GLightbox",       test: () => typeof GLightbox !== "undefined" },
+        { name: "imagesLoaded",    test: () => typeof imagesLoaded !== "undefined" },
+        { name: "Isotope",         test: () => typeof Isotope !== "undefined" },
+        { name: "Swiper",          test: () => typeof Swiper !== "undefined" },
+        { name: "Pusher.js",       test: () => typeof Pusher !== "undefined" },
+        { name: "Laravel Echo",    test: () => typeof Echo !== "undefined" }
+      ].forEach(lib => {
+        console.log(`${lib.name}: ${lib.test() ? "✅ chargé" : "❌ MANQUANT"}`);
+      });
+    });
+
+    // ────────────────────────────────────────────────────────
+    // WebSocket Status Logger
+    console.log("🔍 Reverb WebSocket Status Logger chargé...");
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => {
+        if (window.Echo && window.Echo.connector) {
+          console.warn("⚠️ Laravel Echo déjà initialisé, skip.");
+          return;
+        }
+        if (typeof Pusher === "undefined") {
+          console.error("❌ Pusher.js non chargé !");
+          return;
+        }
+        window.Pusher = Pusher;
+        try {
+          window.Echo = new Echo({
+            broadcaster:  "pusher",
+            key:          window.Laravel.reverbAppKey,
+            wsHost:       window.Laravel.reverbHost,
+            wsPort:       window.Laravel.reverbPort,
+            wssPort:      window.Laravel.reverbPort,
+            forceTLS:     window.Laravel.reverbScheme === "https",
+            disableStats: true,
+            enabledTransports: ["ws","wss"]
+          });
+          const conn = window.Echo.connector.pusher.connection;
+          conn.bind("connecting",    () => console.log("⏳ WebSocket en connexion..."));
+          conn.bind("connected",     () => console.log("✅ WebSocket CONNECTÉ"));
+          conn.bind("disconnected",  () => console.log("❌ WebSocket DÉCONNECTÉ"));
+          conn.bind("error",         err => console.error("⚠️ Erreur WebSocket :", err));
+        } catch (err) {
+          console.error("❌ Erreur init Echo :", err);
+        }
+      }, 500);
+    });
+
+    // ────────────────────────────────────────────────────────
+    // Header toggle
+    const headerToggleBtn = document.querySelector('.header-toggle');
+    const header = document.getElementById('header');
     function headerToggle() {
-      document.querySelector('#header').classList.toggle('header-show');
+      header.classList.toggle('header-show');
       headerToggleBtn.classList.toggle('bi-list');
       headerToggleBtn.classList.toggle('bi-x');
     }
-    headerToggleBtn.addEventListener('click', headerToggle);
+    if (headerToggleBtn) headerToggleBtn.addEventListener('click', headerToggle);
 
-    /**
-     * Hide mobile nav on same-page/hash links
-     */
-    document.querySelectorAll('#navmenu a').forEach(navmenu => {
-      navmenu.addEventListener('click', () => {
-        if (document.querySelector('.header-show')) {
-          headerToggle();
-        }
+    // Hide mobile nav on same-page/hash links
+    document.querySelectorAll('#navmenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (header.classList.contains('header-show')) headerToggle();
       });
-
     });
 
-    /**
-     * Toggle mobile nav dropdowns
-     */
-    document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
-      navmenu.addEventListener('click', function(e) {
+    // Toggle mobile nav dropdowns
+    document.querySelectorAll('.navmenu .toggle-dropdown').forEach(btn => {
+      btn.addEventListener('click', e => {
         e.preventDefault();
-        this.parentNode.classList.toggle('active');
-        this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
+        btn.parentNode.classList.toggle('active');
+        btn.parentNode.nextElementSibling.classList.toggle('dropdown-active');
         e.stopImmediatePropagation();
       });
     });
 
-    /**
-     * Preloader
-     */
-    const preloader = document.querySelector('#preloader');
-    if (preloader) {
-      window.addEventListener('load', () => {
-        preloader.remove();
+    // Preloader
+    const preloader = document.getElementById('preloader');
+    if (preloader) window.addEventListener('load', () => preloader.remove());
+
+    // Scroll top button
+    const scrollTopBtn = document.getElementById('scroll-top');
+    if (scrollTopBtn) {
+      const toggleScrollTop = () => {
+        scrollTopBtn.classList.toggle('active', window.scrollY > 100);
+      };
+      scrollTopBtn.addEventListener('click', e => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
+      window.addEventListener('load', toggleScrollTop);
+      document.addEventListener('scroll', toggleScrollTop);
     }
 
-    /**
-     * Scroll top button
-     */
-    let scrollTop = document.querySelector('.scroll-top');
+    // AOS init + Skills animation avec debug
+    window.addEventListener('load', () => {
+        if (typeof AOS === 'undefined') {
+        console.error("⚠️ AOS non chargé : impossible d'animer les progress bars");
+        return;
+        }
 
-    function toggleScrollTop() {
-      if (scrollTop) {
-        window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
-      }
-    }
-    scrollTop.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-
-    window.addEventListener('load', toggleScrollTop);
-    document.addEventListener('scroll', toggleScrollTop);
-
-    /**
-     * Animation on scroll function and init
-     */
-    function aosInit() {
-      AOS.init({
+        console.log("🚀 Initialisation AOS");
+        AOS.init({
         duration: 600,
         easing: 'ease-in-out',
         once: true,
         mirror: false
-      });
-    }
-    window.addEventListener('load', aosInit);
-
-    /**
-     * Init typed.js
-     */
-    const selectTyped = document.querySelector('.typed');
-    if (selectTyped) {
-      let typed_strings = selectTyped.getAttribute('data-typed-items');
-      typed_strings = typed_strings.split(',');
-      new Typed('.typed', {
-        strings: typed_strings,
-        loop: true,
-        typeSpeed: 100,
-        backSpeed: 50,
-        backDelay: 2000
-      });
-    }
-
-    /**
-     * Initiate Pure Counter
-     */
-    window.addEventListener('load', () => {
-        if (typeof PureCounter === 'function') {
-          new PureCounter();
-        } else {
-          console.error('PureCounter non chargé !');
-        }
-      });
-
-    /**
-     * Animate the skills items on reveal
-     */
-    let skillsAnimation = document.querySelectorAll('.skills-animation');
-    skillsAnimation.forEach((item) => {
-      new Waypoint({
-        element: item,
-        offset: '80%',
-        handler: function(direction) {
-          let progress = item.querySelectorAll('.progress .progress-bar');
-          progress.forEach(el => {
-            el.style.width = el.getAttribute('aria-valuenow') + '%';
-          });
-        }
-      });
-    });
-
-    /**
-     * Initiate glightbox
-     */
-    const glightbox = GLightbox({
-      selector: '.glightbox'
-    });
-
-    /**
-     * Init isotope layout and filters
-     */
-    document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
-      let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
-      let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
-      let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
-
-      let initIsotope;
-      imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
-        initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
-          itemSelector: '.isotope-item',
-          layoutMode: layout,
-          filter: filter,
-          sortBy: sort
         });
-      });
 
-      isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
-        filters.addEventListener('click', function() {
-          isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
-          this.classList.add('filter-active');
-          initIsotope.arrange({
-            filter: this.getAttribute('data-filter')
-          });
-          if (typeof aosInit === 'function') {
-            aosInit();
-          }
-        }, false);
-      });
+        const skills = document.querySelector('.skills-animation');
+        if (!skills) {
+        console.warn("⚠️ .skills-animation introuvable");
+        return;
+        }
+        console.log("👁️ .skills-animation trouvé, on ajoute le listener AOS");
+
+        // DEBUG : on log l'émission de tous les événements AOS
+        document.addEventListener('aos:in', ({ detail }) => {
+        console.log("📢 AOS event ‘in’ sur", detail);
+        if (detail === skills || detail.classList.contains('skills-animation')) {
+            console.log("🎯 C'est notre skills-section -> animation des barres");
+            detail.querySelectorAll('.progress-bar').forEach(bar => {
+            const val = bar.getAttribute('aria-valuenow');
+            console.log(`   • Remplissage de ${bar} à ${val}%`);
+            bar.style.width = val + '%';
+            });
+        }
+        });
+
+        // Fallback IntersectionObserver si AOS ne fire pas
+        console.log("🔧 Mise en place du fallback IntersectionObserver");
+        const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            console.log("➤ IO callback pour", entry.target, "isIntersecting =", entry.isIntersecting);
+            if (entry.isIntersecting && entry.target === skills) {
+            console.log("✅ IO détecte skills en vue, on remplit");
+            skills.querySelectorAll('.progress-bar').forEach(bar => {
+                const val = bar.getAttribute('aria-valuenow');
+                bar.style.width = val + '%';
+            });
+            obs.unobserve(skills);
+            }
+        });
+        }, { threshold: 0.2 });
+        observer.observe(skills);
 
     });
 
-    /**
-     * Init swiper sliders
-     */
-    function initSwiper() {
-      document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
-        let config = JSON.parse(
-          swiperElement.querySelector(".swiper-config").innerHTML.trim()
-        );
-
-        if (swiperElement.classList.contains("swiper-tab")) {
-          initSwiperWithCustomPagination(swiperElement, config);
-        } else {
-          new Swiper(swiperElement, config);
-        }
-      });
+    // Typed.js
+    const typedEl = document.querySelector('.typed');
+    if (typedEl && typeof Typed !== 'undefined') {
+      const strings = typedEl.getAttribute('data-typed-items').split(',');
+      new Typed('.typed', { strings, loop: true, typeSpeed: 100, backSpeed: 50, backDelay: 2000 });
     }
 
-    window.addEventListener("load", initSwiper);
-
-    /**
-     * Correct scrolling position upon page load for URLs containing hash links.
-     */
-    window.addEventListener('load', function(e) {
-      if (window.location.hash) {
-        if (document.querySelector(window.location.hash)) {
-          setTimeout(() => {
-            let section = document.querySelector(window.location.hash);
-            let scrollMarginTop = getComputedStyle(section).scrollMarginTop;
-            window.scrollTo({
-              top: section.offsetTop - parseInt(scrollMarginTop),
-              behavior: 'smooth'
-            });
-          }, 100);
-        }
+    // PureCounter
+    window.addEventListener('load', () => {
+      if (typeof PureCounter === 'function') {
+        new PureCounter();
+        console.log('✅ PureCounter initialisé');
       }
     });
 
-    /**
-     * Navmenu Scrollspy
-     */
-    let navmenulinks = document.querySelectorAll('.navmenu a');
+    // Debug de scroll (désactivé)
+  //   window.addEventListener('scroll', () => {
+  //     console.log("scrollY =", window.scrollY);
+  //   });
 
-    function navmenuScrollspy() {
-      navmenulinks.forEach(navmenulink => {
-        if (!navmenulink.hash) return;
-        let section = document.querySelector(navmenulink.hash);
-        if (!section) return;
-        let position = window.scrollY + 200;
-        if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-          document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
-          navmenulink.classList.add('active');
-        } else {
-          navmenulink.classList.remove('active');
-        }
-      })
+    // GLightbox
+    if (typeof GLightbox !== 'undefined') {
+      GLightbox({ selector: '.glightbox' });
     }
-    window.addEventListener('load', navmenuScrollspy);
-    document.addEventListener('scroll', navmenuScrollspy);
+
+    // Isotope + filters
+    document.querySelectorAll('.isotope-layout').forEach(container => {
+      let iso;
+      imagesLoaded(container.querySelector('.isotope-container'), () => {
+        iso = new Isotope(container.querySelector('.isotope-container'), {
+          itemSelector: '.isotope-item',
+          layoutMode:   container.dataset.layout || 'masonry',
+          filter:       container.dataset.defaultFilter || '*',
+          sortBy:       container.dataset.sort || 'original-order'
+        });
+      });
+      container.querySelectorAll('.isotope-filters li').forEach(btn => {
+        btn.addEventListener('click', () => {
+          container.querySelector('.filter-active').classList.remove('filter-active');
+          btn.classList.add('filter-active');
+          iso.arrange({ filter: btn.dataset.filter });
+          if (typeof AOS !== 'undefined') AOS.refresh();
+        });
+      });
+    });
+
+    // Swiper sliders
+    function initSwiper() {
+      document.querySelectorAll('.init-swiper').forEach(sw => {
+        const cfg = JSON.parse(sw.querySelector('.swiper-config').textContent.trim());
+        if (sw.classList.contains('swiper-tab')) {
+          initSwiperWithCustomPagination(sw, cfg);
+        } else {
+          new Swiper(sw, cfg);
+        }
+      });
+    }
+    window.addEventListener('load', initSwiper);
+
+    // Hash scroll correction
+    window.addEventListener('load', () => {
+      if (location.hash && document.querySelector(location.hash)) {
+        setTimeout(() => {
+          const sec    = document.querySelector(location.hash);
+          const margin = parseInt(getComputedStyle(sec).scrollMarginTop);
+          window.scrollTo({ top: sec.offsetTop - margin, behavior: 'smooth' });
+        }, 100);
+      }
+    });
+
+    // Navmenu Scrollspy
+    const navLinks = document.querySelectorAll('.navmenu a');
+    function scrollSpy() {
+      const pos = window.scrollY + 200;
+      navLinks.forEach(link => {
+        if (!link.hash) return;
+        const sec = document.querySelector(link.hash);
+        link.classList.toggle('active',
+          sec && pos >= sec.offsetTop && pos <= sec.offsetTop + sec.offsetHeight
+        );
+      });
+    }
+    window.addEventListener('load', scrollSpy);
+    document.addEventListener('scroll', scrollSpy);
 
   })();

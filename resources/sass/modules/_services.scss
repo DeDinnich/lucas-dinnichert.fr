@@ -1,20 +1,146 @@
 /* modules/_services.scss */
-.services {
-    .service-item {
-      background: $surface-color; box-shadow: 0 5px 90px rgba(0,0,0,.1);
-      padding:60px 30px; text-align:center; transition:.3s; border-radius:5px;
-      .icon { margin:0 auto 15px; width:100px;height:100px; display:flex;align-items:center;justify-content:center;position:relative;transition:.3s;
-        i { font-size:36px; transition:.5s; position:relative; }
-        svg path { transition:.5s; fill: color-mix(in srgb, $default-color, transparent 95%); }
-      }
-      h3 { font-size:22px; font-weight:700; margin:10px 0 15px; }
-      p { font-size:14px; line-height:24px; margin:0; }
-      &:hover { box-shadow: 0 5px 35px rgba(0,0,0,.1); }
-      &.item-cyan { .icon i { color: #0dcaf0; } &:hover .icon path { fill: #0dcaf0; } }
-      &.item-orange { .icon i { color: #fd7e14; } &:hover .icon path { fill: #fd7e14; } }
-      &.item-teal { .icon i { color: #20c997; } &:hover .icon path { fill: #20c997; } }
-      &.item-red { .icon i { color: #df1529; } &:hover .icon path { fill: #df1529; } }
-      &.item-indigo { .icon i { color: #6610f2; } &:hover .icon path { fill: #6610f2; } }
-      &.item-pink { .icon i { color: #f3268c; } &:hover .icon path { fill: #f3268c; } }
-    }
-  }
+
+/* Color variables */
+$cyan:   #0dcaf0;
+$orange: #fd7e14;
+$teal:   #20c997;
+$red:    #df1529;
+$indigo: #6610f2;
+$pink:   #f3268c;
+
+.services .service-item {
+  background-color: var(--surface-color);
+  box-shadow: 0px 5px 90px 0px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  padding: 60px 30px;
+  text-align: center;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.services .service-item .icon {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: ease-in-out 0.3s;
+  position: relative;
+}
+
+.services .service-item .icon i {
+  font-size: 36px;
+  transition: color 0.5s;
+  position: relative;
+}
+
+.services .service-item .icon svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.services .service-item .icon svg path {
+  transition: fill 0.5s;
+}
+
+.services .service-item h3 {
+  font-weight: 700;
+  margin: 10px 0 15px;
+  font-size: 22px;
+}
+
+.services .service-item p {
+  line-height: 24px;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.services .service-item:hover {
+  box-shadow: 0px 5px 35px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* Cyan variant */
+.services .service-item.item-cyan i {
+  color: $cyan;
+}
+.services .service-item.item-cyan .icon svg path {
+  fill: lighten($cyan, 40%);
+}
+.services .service-item.item-cyan:hover .icon i {
+  color: #fff;
+}
+.services .service-item.item-cyan:hover .icon svg path {
+  fill: $cyan;
+}
+
+/* Orange variant */
+.services .service-item.item-orange i {
+  color: $orange;
+}
+.services .service-item.item-orange .icon svg path {
+  fill: lighten($orange, 40%);
+}
+.services .service-item.item-orange:hover .icon i {
+  color: #fff;
+}
+.services .service-item.item-orange:hover .icon svg path {
+  fill: $orange;
+}
+
+/* Teal variant */
+.services .service-item.item-teal i {
+  color: $teal;
+}
+.services .service-item.item-teal .icon svg path {
+  fill: lighten($teal, 40%);
+}
+.services .service-item.item-teal:hover .icon i {
+  color: #fff;
+}
+.services .service-item.item-teal:hover .icon svg path {
+  fill: $teal;
+}
+
+/* Red variant */
+.services .service-item.item-red i {
+  color: $red;
+}
+.services .service-item.item-red .icon svg path {
+  fill: lighten($red, 40%);
+}
+.services .service-item.item-red:hover .icon i {
+  color: #fff;
+}
+.services .service-item.item-red:hover .icon svg path {
+  fill: $red;
+}
+
+/* Indigo variant */
+.services .service-item.item-indigo i {
+  color: $indigo;
+}
+.services .service-item.item-indigo .icon svg path {
+  fill: lighten($indigo, 40%);
+}
+.services .service-item.item-indigo:hover .icon i {
+  color: #fff;
+}
+.services .service-item.item-indigo:hover .icon svg path {
+  fill: $indigo;
+}
+
+/* Pink variant */
+.services .service-item.item-pink i {
+  color: $pink;
+}
+.services .service-item.item-pink .icon svg path {
+  fill: lighten($pink, 40%);
+}
+.services .service-item.item-pink:hover .icon i {
+  color: #fff;
+}
+.services .service-item.item-pink:hover .icon svg path {
+  fill: $pink;
+}
