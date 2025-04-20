@@ -5,6 +5,10 @@
       padding-bottom: 20px;
     }
 
+    li {
+      cursor: pointer;
+    }
+
     a, a:focus {
       display: flex;
       align-items: center;

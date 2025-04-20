@@ -10,6 +10,10 @@ html {
   scroll-behavior: smooth;
 }
 
+ol, ul {
+  padding-left: 0rem;
+}
+
 body {
   font-family: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   color: #272829;
@@ -90,7 +94,7 @@ a:hover {
 }
 @media (min-width: 1200px) and (max-width: 1600px) {
   .header ~ main {
-    margin-left: 190px;
+    margin-left: 160px;
   }
   .header ~ main .hero {
     margin-left: -160px;
@@ -102,6 +106,9 @@ a:hover {
 .navmenu ul {
   list-style: none;
   padding-bottom: 20px;
+}
+.navmenu li {
+  cursor: pointer;
 }
 .navmenu a, .navmenu a:focus {
   display: flex;
@@ -410,7 +417,7 @@ section,
   background: color-mix(in srgb, #272829, transparent 60%);
   left: 0;
   right: 0;
-  bottom: 75%;
+  bottom: 70%;
   margin: auto;
 }
 .section-title h2:after {
@@ -421,7 +428,7 @@ section,
   background: #0563bb;
   left: 0;
   right: 0;
-  bottom: 75%;
+  bottom: 70%;
   margin: auto;
 }
 .section-title p {

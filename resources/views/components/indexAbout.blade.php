@@ -3,47 +3,47 @@
 
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-      <h2>About</h2>
-      <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        <h2>À propos de moi</h2>
+        <p>
+            Développeur web passionné, je conçois des applications full‑stack et mobiles performantes, tout en optimisant leur référencement et leur déploiement.
+        </p>
     </div><!-- End Section Title -->
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-      <div class="row gy-4 justify-content-center">
-        <div class="col-lg-4">
-          <img src="img/profile-img.jpg" class="img-fluid" alt="">
-        </div>
-        <div class="col-lg-8 content">
-          <h2>UI/UX Designer &amp; Web Developer.</h2>
-          <p class="fst-italic py-3">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua.
-          </p>
-          <div class="row">
-            <div class="col-lg-6">
-              <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 May 1995</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.example.com</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+123 456 7890</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>New York, USA</span></li>
-              </ul>
+        <div class="row gy-4 justify-content-center">
+            <div class="col-lg-4">
+                <img src="{{ asset('img/profile-img.png') }}" class="img-fluid" alt="Photo de profil de Lucas Dinnichert">
             </div>
-            <div class="col-lg-6">
-              <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>30</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Master</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>email@example.com</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
-              </ul>
+            <div class="col-lg-8 content">
+                <h2>Développeur Full‑Stack &amp; Mobile<br>Ingénieur SEO &amp; DevOps</h2>
+                <p class="fst-italic py-3">
+                    Spécialiste en React, PHP et de nombreux autres langages, je crée des interfaces modernes et des back‑ends robustes. J’assure également l’optimisation SEO et la mise en place de pipelines DevOps pour un déploiement fiable.
+                </p>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <ul>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Langages&nbsp;:</strong> <span>JavaScript (React), PHP, Dart (Flutter), SQL</span></li>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Frameworks&nbsp;:</strong> <span>Laravel, Symfony, Express, React Native</span></li>
+                            <li><i class="bi bi-chevron-right"></i> <strong>SEO&nbsp;:</strong> <span>Audit on‑page, optimisation technique, netlinking</span></li>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Outils&nbsp;:</strong> <span>Git, Webpack, Docker, Kubernetes</span></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <ul>
+                            <li><i class="bi bi-chevron-right"></i> <strong>DevOps&nbsp;:</strong> <span>CI/CD (Jenkins, GitHub Actions), AWS, Azure</span></li>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Collaboration&nbsp;:</strong> <span>ChatGPT pour debugging et prototypage rapide</span></li>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Email&nbsp;:</strong> <span>lucas.dinnichert@example.com</span></li>
+                            <li><i class="bi bi-chevron-right"></i> <strong>GitHub&nbsp;:</strong> <span>github.com/dinnichertlucas</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="py-3">
+                    Je suis toujours en quête de nouveaux défis techniques et j’aime travailler en équipe pour concevoir des solutions innovantes, fiables et évolutives. N’hésitez pas à me contacter pour discuter de votre projet !
+                </p>
             </div>
-          </div>
-          <p class="py-3">
-            Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
-            Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque.
-          </p>
         </div>
-      </div>
 
     </div>
 
-  </section><!-- /About Section -->
+</section><!-- /About Section -->

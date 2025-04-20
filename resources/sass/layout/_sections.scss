@@ -9,10 +9,10 @@ section,
   h2 { font-size: 32px; font-weight: 700; margin-bottom: 20px; padding-bottom: 20px;
     &:before { content: ""; position: absolute; width: 160px; height: 1px;
       background: color-mix(in srgb, $default-color, transparent 60%);
-      left: 0; right: 0; bottom: 75%; margin: auto;
+      left: 0; right: 0; bottom: 70%; margin: auto;
     }
     &:after { content: ""; position: absolute; width: 60px; height: 3px;
-      background: $accent-color; left: 0; right: 0; bottom: 75%; margin: auto;
+      background: $accent-color; left: 0; right: 0; bottom: 70%; margin: auto;
     }
   }
   p { margin-bottom: 0; }
