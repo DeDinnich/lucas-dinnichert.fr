@@ -158,12 +158,9 @@
         });
 
         // Fallback IntersectionObserver si AOS ne fire pas
-        console.log("🔧 Mise en place du fallback IntersectionObserver");
         const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
-            console.log("➤ IO callback pour", entry.target, "isIntersecting =", entry.isIntersecting);
             if (entry.isIntersecting && entry.target === skills) {
-            console.log("✅ IO détecte skills en vue, on remplit");
             skills.querySelectorAll('.progress-bar').forEach(bar => {
                 const val = bar.getAttribute('aria-valuenow');
                 bar.style.width = val + '%';
@@ -190,11 +187,6 @@
         console.log('✅ PureCounter initialisé');
       }
     });
-
-    // Debug de scroll (désactivé)
-  //   window.addEventListener('scroll', () => {
-  //     console.log("scrollY =", window.scrollY);
-  //   });
 
     // GLightbox
     if (typeof GLightbox !== 'undefined') {

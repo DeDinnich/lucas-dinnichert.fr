@@ -22,7 +22,7 @@
                     <a href="#" class="stretched-link">
                         <h3>Design préalable</h3>
                     </a>
-                    <p>Wireframes, maquettes et UI/UX pour poser l’architecture visuelle de votre projet.</p>
+                    <p>Wireframes, maquettes et UI/UX pour poser l’architecture visuelle de votre projet. Service géré par Jade Langendorf</p>
                 </div>
             </div><!-- End Service Item -->
 

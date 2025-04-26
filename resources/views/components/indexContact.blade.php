@@ -12,7 +12,7 @@
       <div class="row gy-4">
 
         <div class="col-lg-4">
-          <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+          <div class="info-item d-flex mb-md-5" data-aos="fade-up" data-aos-delay="200">
             <i class="bi bi-geo-alt flex-shrink-0"></i>
             <div>
               <h3>Adresse</h3>
@@ -20,7 +20,7 @@
             </div>
           </div><!-- End Info Item -->
 
-          <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+          <div class="info-item d-flex mb-md-5" data-aos="fade-up" data-aos-delay="300">
             <i class="bi bi-telephone flex-shrink-0"></i>
             <div>
               <h3>Téléphone</h3>
@@ -63,7 +63,9 @@
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
 
-                <button type="submit">Envoyer</button>
+                <button class="send-button w-100" type="submit">
+                    <span class="text">Envoyer</span>
+                </button>
               </div>
 
             </div>

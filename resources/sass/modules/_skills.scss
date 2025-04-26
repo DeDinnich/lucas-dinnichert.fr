@@ -7,13 +7,13 @@
   }
 
   .skills .progress .skill {
-    color: var(--heading-color);
+    color: $heading-color;
     padding: 0;
     margin: 0 0 6px 0;
     text-transform: uppercase;
     display: block;
     font-weight: 600;
-    font-family: var(--heading-font);
+    font-family: $heading-font;
   }
 
   .skills .progress .skill .val {
@@ -29,8 +29,24 @@
   }
 
   .skills .progress-bar {
-    width: 0;                          /* valeur initiale à 0 */
+    width: 0;
     height: 10px;
+    background: linear-gradient(270deg, #af40ff, #5b42f3, #00ddeb, #af40ff);
+    background-size: 600% 600%;
+    animation: animate-gradient 7s ease infinite;
     transition: width 0.9s ease;
-    background-color: var(--accent-color, #0d6efd) !important;
+    border-radius: 5px;
+  }
+
+  /* Animation du gradient */
+  @keyframes animate-gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }

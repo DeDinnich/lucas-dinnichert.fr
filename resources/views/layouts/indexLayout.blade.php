@@ -6,8 +6,8 @@
     <title>@yield('title', 'Portfolio | Jade Langendorf')</title>
 
     <!-- Fonts + Favicons -->
-    <link href="img/favicon.png" rel="icon">
-    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="img/Logo-dark.png" rel="icon">
+    <link href="img/Logo-dark.png" rel="apple-touch-icon">
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">

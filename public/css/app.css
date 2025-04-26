@@ -16,22 +16,22 @@ ol, ul {
 
 body {
   font-family: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  color: #272829;
-  background: #ffffff;
+  color: #e8e6f8;
+  background: #14101a;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
-  color: #45505b;
+  color: #ffffff;
 }
 
 a {
-  color: #0563bb;
+  color: #8f48eb;
   text-decoration: none;
   transition: 0.3s;
 }
 a:hover {
-  color: color-mix(in srgb, #0563bb, transparent 25%);
+  color: color-mix(in srgb, #8f48eb, transparent 25%);
 }
 
 /* base/_utilities.scss */
@@ -50,7 +50,7 @@ a:hover {
 
 /* components/_header.scss */
 .header {
-  color: #272829;
+  color: #e8e6f8;
   position: fixed;
   top: 0;
   left: 0;
@@ -71,8 +71,8 @@ a:hover {
   z-index: 9999;
   width: 40px;
   height: 40px;
-  background: #0563bb;
-  color: #ffffff;
+  background: #8f48eb;
+  color: #0a0710;
   font-size: 22px;
   border-radius: 50%;
   display: flex;
@@ -82,12 +82,12 @@ a:hover {
   transition: background-color 0.3s;
 }
 .header .header-toggle:hover {
-  background: color-mix(in srgb, #0563bb 90%, white 15%);
+  background: color-mix(in srgb, #8f48eb 90%, white 15%);
 }
 @media (max-width: 1199px) {
   .header {
-    background: #ffffff;
-    border-right: 1px solid color-mix(in srgb, #272829, transparent 90%);
+    background: #14101a;
+    border-right: 1px solid color-mix(in srgb, #e8e6f8, transparent 90%);
     width: 300px;
     left: -100%;
   }
@@ -117,8 +117,8 @@ a:hover {
   margin-bottom: 8px;
   font-family: "Poppins", sans-serif;
   font-size: 15px;
-  color: #45505b;
-  background: color-mix(in srgb, #272829, transparent 92%);
+  color: #e8e6f8;
+  background: color-mix(in srgb, #e8e6f8, transparent 92%);
   border-radius: 50px;
   height: 56px;
   width: 100%;
@@ -134,8 +134,8 @@ a:hover {
 .navmenu a:hover, .navmenu a.active,
 .navmenu a li:hover > a, .navmenu a:focus:hover, .navmenu a:focus.active,
 .navmenu a:focus li:hover > a {
-  color: #ffffff;
-  background: #0563bb;
+  color: #0a0710;
+  background: #68b6f3;
   max-width: 100%;
 }
 .navmenu a:hover span, .navmenu a.active span,
@@ -160,8 +160,8 @@ a:hover {
 
 /* components/_footer.scss */
 .footer {
-  color: #272829;
-  background: #ffffff;
+  color: #e8e6f8;
+  background: #14101a;
   font-size: 14px;
   text-align: center;
   padding: 30px 0;
@@ -177,25 +177,86 @@ a:hover {
   font-style: italic;
   margin-bottom: 30px;
 }
-.footer .social-links a {
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
+.footer .wrapper {
+  display: inline-flex;
+  list-style: none;
+  height: 120px;
+  width: 100%;
+  padding-top: 40px;
+  font-family: "Poppins", sans-serif;
   justify-content: center;
-  background: #0563bb;
-  color: #ffffff;
-  border-radius: 50%;
-  margin: 0 4px;
-  transition: 0.3s;
-  font-size: 16px;
 }
-.footer .social-links a:hover {
-  background: color-mix(in srgb, #0563bb, transparent 20%);
+.footer .wrapper .icon {
+  position: relative;
+  background: linear-gradient(30deg, #af40ff, #5b42f3 50%, #00ddeb);
+  border-radius: 50%;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.footer .wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background: #fff;
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.footer .wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #fff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.footer .wrapper .icon:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.footer .wrapper .icon:hover span,
+.footer .wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+.footer .wrapper .facebook:hover,
+.footer .wrapper .facebook:hover .tooltip,
+.footer .wrapper .facebook:hover .tooltip::before {
+  background: #1877f2;
+  color: #fff;
+}
+.footer .wrapper .twitter:hover,
+.footer .wrapper .twitter:hover .tooltip,
+.footer .wrapper .twitter:hover .tooltip::before {
+  background: #1da1f2;
+  color: #fff;
+}
+.footer .wrapper .instagram:hover,
+.footer .wrapper .instagram:hover .tooltip,
+.footer .wrapper .instagram:hover .tooltip::before {
+  background: #e4405f;
+  color: #fff;
 }
 .footer .copyright {
   padding-top: 25px;
-  border-top: 1px solid color-mix(in srgb, #272829, transparent 90%);
+  border-top: 1px solid color-mix(in srgb, #e8e6f8, transparent 90%);
 }
 .footer .credits {
   font-size: 13px;
@@ -208,7 +269,7 @@ a:hover {
   inset: 0;
   z-index: 999999;
   overflow: hidden;
-  background: #ffffff;
+  background: #14101a;
   transition: all 0.6s ease-out;
 }
 #preloader:before {
@@ -217,7 +278,7 @@ a:hover {
   top: calc(50% - 30px);
   left: calc(50% - 30px);
   border: 6px solid var(--accent-color);
-  border-color: #0563bb transparent #0563bb transparent;
+  border-color: #8f48eb transparent #8f48eb transparent;
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -240,15 +301,17 @@ a:hover {
   visibility: hidden;
   opacity: 0;
   z-index: 99999;
-  background: #0563bb;
+  background: #8f48eb;
   width: 44px;
   height: 44px;
   border-radius: 50px;
   transition: all 0.4s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .scroll-top i {
   font-size: 24px;
-  color: #ffffff;
+  color: #0a0710;
+  transition: transform 0.3s;
 }
 .scroll-top.active {
   visibility: visible;
@@ -256,7 +319,11 @@ a:hover {
   bottom: 15px;
 }
 .scroll-top:hover {
-  background: color-mix(in srgb, #0563bb, transparent 20%);
+  background: color-mix(in srgb, #8f48eb, transparent 20%);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+.scroll-top:hover i {
+  transform: translateY(-5px);
 }
 
 /* components/_php-email-form.scss */
@@ -268,16 +335,16 @@ a:hover {
 }
 .php-email-form .error-message {
   background: #df1529;
-  color: #ffffff;
+  color: #0a0710;
   text-align: left;
 }
 .php-email-form .sent-message {
   background: #059652;
-  color: #ffffff;
+  color: #0a0710;
   text-align: center;
 }
 .php-email-form .loading {
-  background: #ffffff;
+  background: #1f1b2e;
   text-align: center;
 }
 .php-email-form .loading:before {
@@ -287,8 +354,8 @@ a:hover {
   width: 24px;
   height: 24px;
   margin-right: 10px;
-  border: 3px solid #0563bb;
-  border-top-color: #ffffff;
+  border: 3px solid #8f48eb;
+  border-top-color: #1f1b2e;
   animation: php-email-form-loading 1s linear infinite;
 }
 
@@ -300,6 +367,47 @@ a:hover {
     transform: rotate(360deg);
   }
 }
+.send-button {
+  align-items: center;
+  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: flex;
+  font-size: 18px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.send-button:active, .send-button:hover {
+  outline: 0;
+}
+.send-button span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+.send-button span:hover {
+  background: none;
+}
+.send-button:active {
+  transform: scale(0.9);
+}
+
 /* layout/_hero.scss */
 .hero {
   width: 100%;
@@ -322,7 +430,7 @@ a:hover {
   content: "";
   position: absolute;
   inset: 0;
-  background: color-mix(in srgb, #ffffff, transparent 30%);
+  background: color-mix(in srgb, #14101a, transparent 30%);
   z-index: 2;
 }
 .hero .container {
@@ -340,16 +448,16 @@ a:hover {
 }
 .hero p span {
   letter-spacing: 1px;
-  border-bottom: 2px solid #0563bb;
+  border-bottom: 2px solid #8f48eb;
 }
 .hero .social-links a {
   font-size: 20px;
   display: inline-block;
   margin-right: 20px;
-  color: color-mix(in srgb, #272829, transparent 30%);
+  color: color-mix(in srgb, #e8e6f8, transparent 30%);
 }
 .hero .social-links a:hover {
-  color: #0563bb;
+  color: #8f48eb;
 }
 @media (max-width: 768px) {
   .hero h2 {
@@ -363,7 +471,7 @@ a:hover {
 /* layout/_page-title.scss */
 .page-title {
   --background-color: color-mix(in srgb, $default-color, transparent 96%);
-  color: #272829;
+  color: #e8e6f8;
   background: var(--background-color);
   padding: 20px 0;
   position: relative;
@@ -386,14 +494,14 @@ a:hover {
 .page-title .breadcrumbs ol li + li::before {
   content: "/";
   padding-right: 10px;
-  color: color-mix(in srgb, #272829, transparent 70%);
+  color: color-mix(in srgb, #e8e6f8, transparent 70%);
 }
 
 /* layout/_sections.scss */
 section,
 .section {
-  background: #ffffff;
-  color: #272829;
+  background: #14101a;
+  color: #e8e6f8;
   padding: 60px 0;
   overflow: clip;
 }
@@ -414,7 +522,7 @@ section,
   position: absolute;
   width: 160px;
   height: 1px;
-  background: color-mix(in srgb, #272829, transparent 60%);
+  background: color-mix(in srgb, #e8e6f8, transparent 60%);
   left: 0;
   right: 0;
   bottom: 70%;
@@ -425,7 +533,7 @@ section,
   position: absolute;
   width: 60px;
   height: 3px;
-  background: #0563bb;
+  background: #8f48eb;
   left: 0;
   right: 0;
   bottom: 70%;
@@ -451,7 +559,7 @@ section,
 .about .content ul li i {
   font-size: 16px;
   margin-right: 5px;
-  color: #0563bb;
+  color: #8f48eb;
 }
 .about .content ul li strong {
   margin-right: 10px;
@@ -459,8 +567,8 @@ section,
 
 /* modules/_stats.scss */
 .stats i {
-  background: #0563bb;
-  color: #ffffff;
+  background: #8f48eb;
+  color: #0a0710;
   width: 54px;
   height: 54px;
   font-size: 24px;
@@ -477,12 +585,12 @@ section,
 .stats .stats-item span {
   font-size: 36px;
   font-weight: 700;
-  color: color-mix(in srgb, #272829, transparent 20%);
+  color: color-mix(in srgb, #e8e6f8, transparent 20%);
   display: block;
 }
 .stats .stats-item p {
   font-size: 16px;
-  color: color-mix(in srgb, #272829, transparent 50%);
+  color: color-mix(in srgb, #e8e6f8, transparent 50%);
   padding: 0;
   margin: 0;
 }
@@ -496,13 +604,13 @@ section,
 }
 
 .skills .progress .skill {
-  color: var(--heading-color);
+  color: #ffffff;
   padding: 0;
   margin: 0 0 6px 0;
   text-transform: uppercase;
   display: block;
   font-weight: 600;
-  font-family: var(--heading-font);
+  font-family: "Raleway", sans-serif;
 }
 
 .skills .progress .skill .val {
@@ -518,23 +626,38 @@ section,
 }
 
 .skills .progress-bar {
-  width: 0; /* valeur initiale à 0 */
+  width: 0;
   height: 10px;
+  background: linear-gradient(270deg, #af40ff, #5b42f3, #00ddeb, #af40ff);
+  background-size: 600% 600%;
+  animation: animate-gradient 7s ease infinite;
   transition: width 0.9s ease;
-  background-color: var(--accent-color, #0d6efd) !important;
+  border-radius: 5px;
 }
 
+/* Animation du gradient */
+@keyframes animate-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 /* modules/_resume.scss */
 .resume .resume-title {
   font-size: 26px;
   font-weight: 700;
   margin: 20px 0;
-  color: #45505b;
+  color: #ffffff;
 }
 .resume .resume-item {
   position: relative;
   padding: 0 0 20px 20px;
-  border-left: 2px solid #0563bb;
+  border-left: 2px solid #8f48eb;
   margin-top: -2px;
 }
 .resume .resume-item::before {
@@ -545,15 +668,15 @@ section,
   border-radius: 50%;
   left: -9px;
   top: 0;
-  background: #ffffff;
-  border: 2px solid #0563bb;
+  background: #14101a;
+  border: 2px solid #8f48eb;
 }
 .resume .resume-item h4 {
   font-size: 18px;
   font-weight: 600;
   line-height: 18px;
   text-transform: uppercase;
-  color: color-mix(in srgb, #272829, transparent 20%);
+  color: color-mix(in srgb, #e8e6f8, transparent 20%);
   margin-bottom: 10px;
 }
 .resume .resume-item h5 {
@@ -591,8 +714,8 @@ section,
   cursor: pointer;
 }
 .portfolio .portfolio-filters li:hover, .portfolio .portfolio-filters li.filter-active {
-  background: #0563bb;
-  color: #ffffff;
+  background: #8f48eb;
+  color: #0a0710;
 }
 .portfolio .portfolio-filters li:first-child {
   margin-left: 0;
@@ -611,7 +734,7 @@ section,
   bottom: -100%;
   z-index: 3;
   padding: 15px;
-  background: color-mix(in srgb, #ffffff, transparent 10%);
+  background: color-mix(in srgb, #14101a, transparent 10%);
   transition: 0.5s;
 }
 .portfolio .portfolio-item .portfolio-info h4 {
@@ -623,13 +746,13 @@ section,
   font-size: 14px;
   margin-bottom: 0;
   padding-right: 50px;
-  color: color-mix(in srgb, #272829, transparent 30%);
+  color: color-mix(in srgb, #e8e6f8, transparent 30%);
 }
 .portfolio .portfolio-item .portfolio-info .preview-link, .portfolio .portfolio-item .portfolio-info .details-link {
   position: absolute;
   top: calc(50% - 14px);
   font-size: 24px;
-  color: color-mix(in srgb, #272829, transparent 30%);
+  color: color-mix(in srgb, #e8e6f8, transparent 30%);
   transition: 0.3s;
 }
 .portfolio .portfolio-item .portfolio-info .details-link {
@@ -640,7 +763,7 @@ section,
   right: 50px;
 }
 .portfolio .portfolio-item .portfolio-info .preview-link:hover, .portfolio .portfolio-item .portfolio-info .details-link:hover {
-  color: #0563bb;
+  color: #8f48eb;
 }
 .portfolio .portfolio-item:hover .portfolio-info {
   opacity: 1;
@@ -650,7 +773,7 @@ section,
 /* modules/_services.scss */
 /* Color variables */
 .services .service-item {
-  background-color: var(--surface-color);
+  background-color: #1f1b2e;
   box-shadow: 0px 5px 90px 0px rgba(0, 0, 0, 0.1);
   height: 100%;
   padding: 60px 30px;
@@ -809,12 +932,12 @@ section,
   overflow: hidden;
 }
 .testimonials .testimonial-item .testimonial-content {
-  border-left: 3px solid #0563bb;
+  border-left: 3px solid #8f48eb;
   padding-left: 30px;
 }
 .testimonials .testimonial-item .testimonial-img {
   border-radius: 50%;
-  border: 4px solid #ffffff;
+  border: 4px solid #14101a;
   margin: 0 auto;
 }
 .testimonials .testimonial-item h3 {
@@ -824,7 +947,7 @@ section,
 }
 .testimonials .testimonial-item h4 {
   font-size: 14px;
-  color: color-mix(in srgb, #272829, transparent 40%);
+  color: color-mix(in srgb, #e8e6f8, transparent 40%);
   margin: 0 0 10px;
 }
 .testimonials .testimonial-item .stars i {
@@ -833,7 +956,7 @@ section,
 }
 .testimonials .testimonial-item .quote-icon-left, .testimonials .testimonial-item .quote-icon-right {
   font-size: 26px;
-  color: color-mix(in srgb, #0563bb, transparent 50%);
+  color: color-mix(in srgb, #8f48eb, transparent 50%);
   line-height: 0;
   position: relative;
 }
@@ -850,11 +973,11 @@ section,
 .testimonials .swiper-pagination .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
-  background: color-mix(in srgb, #272829, transparent 85%);
+  background: color-mix(in srgb, #e8e6f8, transparent 85%);
   opacity: 1;
 }
 .testimonials .swiper-pagination .swiper-pagination-bullet-active {
-  background: #0563bb;
+  background: #8f48eb;
 }
 
 /* modules/_contact.scss */
@@ -870,14 +993,14 @@ section,
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: color-mix(in srgb, #0563bb, transparent 92%);
-  color: #0563bb;
+  background: color-mix(in srgb, #8f48eb, transparent 92%);
+  color: #8f48eb;
   transition: 0.3s;
   margin-right: 15px;
 }
 .contact .info-item i:hover {
-  background: #0563bb;
-  color: #ffffff;
+  background: #8f48eb;
+  color: #0a0710;
 }
 .contact .info-item h3 {
   font-size: 18px;
@@ -899,25 +1022,18 @@ section,
   padding: 10px 15px;
   font-size: 14px;
   border-radius: 0;
-  background: color-mix(in srgb, #ffffff, transparent 50%);
-  border: 1px solid color-mix(in srgb, #272829, transparent 80%);
+  background: color-mix(in srgb, #14101a, transparent 50%);
+  border: 1px solid color-mix(in srgb, #e8e6f8, transparent 80%);
 }
 .contact .php-email-form input[type=text]:focus, .contact .php-email-form input[type=email]:focus, .contact .php-email-form textarea:focus {
-  border-color: #0563bb;
+  border-color: #8f48eb;
 }
 .contact .php-email-form input[type=text]::placeholder, .contact .php-email-form input[type=email]::placeholder, .contact .php-email-form textarea::placeholder {
-  color: color-mix(in srgb, #272829, transparent 70%);
+  color: color-mix(in srgb, #e8e6f8, transparent 70%);
 }
-.contact .php-email-form button[type=submit] {
-  padding: 10px 30px;
-  border: 0;
-  border-radius: 50px;
-  background: #0563bb;
-  color: #ffffff;
-  transition: 0.4s;
-}
-.contact .php-email-form button[type=submit]:hover {
-  background: color-mix(in srgb, #0563bb, transparent 25%);
+
+.form-control:focus {
+  box-shadow: none !important;
 }
 
 /* modules/_portfolio-details.scss */
@@ -949,11 +1065,11 @@ section,
 .portfolio-details .swiper-pagination .swiper-pagination-bullet {
   width: 10px;
   height: 10px;
-  background: color-mix(in srgb, #272829, transparent 85%);
+  background: color-mix(in srgb, #e8e6f8, transparent 85%);
   opacity: 1;
 }
 .portfolio-details .swiper-pagination .swiper-pagination-bullet-active {
-  background: #0563bb;
+  background: #8f48eb;
 }
 .portfolio-details .portfolio-info h3 {
   font-size: 22px;
@@ -968,7 +1084,7 @@ section,
   bottom: 0;
   width: 50px;
   height: 3px;
-  background: #0563bb;
+  background: #8f48eb;
 }
 .portfolio-details .portfolio-info ul {
   list-style: none;
@@ -982,19 +1098,19 @@ section,
 .portfolio-details .portfolio-info ul li strong {
   text-transform: uppercase;
   font-weight: 400;
-  color: color-mix(in srgb, #272829, transparent 50%);
+  color: color-mix(in srgb, #e8e6f8, transparent 50%);
   font-size: 14px;
 }
 .portfolio-details .portfolio-info .btn-visit {
   display: inline-block;
   padding: 8px 40px;
   border-radius: 50px;
-  background: #0563bb;
-  color: #ffffff;
+  background: #8f48eb;
+  color: #0a0710;
   transition: 0.3s;
 }
 .portfolio-details .portfolio-info .btn-visit:hover {
-  background: color-mix(in srgb, #0563bb, transparent 20%);
+  background: color-mix(in srgb, #8f48eb, transparent 20%);
 }
 .portfolio-details .portfolio-description h2 {
   font-size: 26px;
@@ -1006,7 +1122,7 @@ section,
   padding: 0;
 }
 .portfolio-details .portfolio-description .testimonial-item {
-  background: color-mix(in srgb, #272829, transparent 97%);
+  background: color-mix(in srgb, #e8e6f8, transparent 97%);
   padding: 30px;
   margin-bottom: 50px;
   position: relative;
@@ -1015,7 +1131,7 @@ section,
   float: left;
   width: 90px;
   border-radius: 50%;
-  border: 6px solid #ffffff;
+  border: 6px solid #14101a;
   margin-right: 10px;
 }
 .portfolio-details .portfolio-description .testimonial-item h3 {
@@ -1031,7 +1147,7 @@ section,
 }
 .portfolio-details .portfolio-description .testimonial-item .quote-icon-left, .portfolio-details .portfolio-description .testimonial-item .quote-icon-right {
   font-size: 26px;
-  color: color-mix(in srgb, #0563bb, transparent 50%);
+  color: color-mix(in srgb, #8f48eb, transparent 50%);
   line-height: 0;
   position: relative;
 }
@@ -1057,7 +1173,7 @@ section,
 .service-details h4 {
   font-size: 20px;
   font-weight: 700;
-  border-bottom: 2px solid color-mix(in srgb, #272829, transparent 92%);
+  border-bottom: 2px solid color-mix(in srgb, #e8e6f8, transparent 92%);
   padding-bottom: 15px;
   margin-bottom: 15px;
 }
@@ -1067,38 +1183,38 @@ section,
   padding: 12px 15px;
   margin-top: 15px;
   transition: 0.3s;
-  background: color-mix(in srgb, #272829, transparent 96%);
-  color: color-mix(in srgb, #272829, transparent 20%);
+  background: color-mix(in srgb, #e8e6f8, transparent 96%);
+  color: color-mix(in srgb, #e8e6f8, transparent 20%);
 }
 .service-details .services-list a i {
   font-size: 16px;
-  color: #0563bb;
+  color: #8f48eb;
   margin-right: 8px;
 }
 .service-details .services-list a:first-child {
   margin-top: 0;
 }
 .service-details .services-list a.active {
-  background: #0563bb;
-  color: #ffffff;
+  background: #8f48eb;
+  color: #0a0710;
 }
 .service-details .services-list a.active i {
-  color: #ffffff;
+  color: #0a0710;
 }
 .service-details .services-list a:hover {
-  background: color-mix(in srgb, #0563bb, transparent 95%);
-  color: #0563bb;
+  background: color-mix(in srgb, #8f48eb, transparent 95%);
+  color: #8f48eb;
 }
 .service-details .download-catalog a {
   display: flex;
   align-items: center;
   padding: 10px 0;
   transition: 0.3s;
-  border-top: 1px solid color-mix(in srgb, #272829, transparent 90%);
+  border-top: 1px solid color-mix(in srgb, #e8e6f8, transparent 90%);
 }
 .service-details .download-catalog a i {
   font-size: 24px;
-  color: #0563bb;
+  color: #8f48eb;
   margin-right: 8px;
 }
 .service-details .download-catalog a:first-child {
@@ -1106,11 +1222,11 @@ section,
   padding-top: 0;
 }
 .service-details .download-catalog a:hover {
-  color: #0563bb;
+  color: #8f48eb;
 }
 .service-details .help-box {
-  background: #0563bb;
-  color: #ffffff;
+  background: #8f48eb;
+  color: #0a0710;
   padding: 30px 15px;
   margin-top: 30px;
 }
@@ -1118,7 +1234,7 @@ section,
   font-size: 48px;
 }
 .service-details .help-box h4, .service-details .help-box a {
-  color: #ffffff;
+  color: #0a0710;
 }
 .service-details .services-img {
   margin-bottom: 20px;
@@ -1138,7 +1254,7 @@ section,
 }
 .service-details p li i, .service-details ul li i {
   font-size: 20px;
-  color: #0563bb;
+  color: #8f48eb;
   margin-right: 8px;
 }
 

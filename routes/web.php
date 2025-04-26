@@ -9,4 +9,5 @@ use App\Http\Controllers\starterController;
 Route::get('/', [indexController::class, 'index'])->name('index');
 Route::get('/portfolio', [portfolioController::class, 'index'])->name('portfolio');
 Route::get('/services', [serviceController::class, 'index'])->name('services');
-Route::get('/starter', [starterController::class, 'index'])->name('starter');
+Route::get('/api/get-reviews', [indexController::class, 'getReviews'])->name('api.get-reviews');
+

@@ -4,7 +4,22 @@
     visibility: hidden; opacity: 0; z-index: 99999;
     background: $accent-color; width: 44px; height: 44px;
     border-radius: 50px; transition: all .4s;
-    i { font-size: 24px; color: $contrast-color; }
-    &.active { visibility: visible; opacity: 1; bottom: 15px; }
-    &:hover { background: color-mix(in srgb, $accent-color, transparent 20%); }
-  }
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Ombre par défaut
+    i {
+        font-size: 24px;
+        color: $contrast-color;
+        transition: transform 0.3s; // Transition pour l'animation de saut
+    }
+    &.active {
+        visibility: visible;
+        opacity: 1;
+        bottom: 15px;
+    }
+    &:hover {
+        background: color-mix(in srgb, $accent-color, transparent 20%);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); // Ombre dynamique au hover
+        i {
+            transform: translateY(-5px); // Animation de saut
+        }
+    }
+}

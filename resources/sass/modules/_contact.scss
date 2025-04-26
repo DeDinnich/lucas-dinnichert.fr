@@ -17,10 +17,9 @@
         &:focus { border-color: $accent-color; }
         &::placeholder { color: color-mix(in srgb, $default-color, transparent 70%); }
       }
-      button[type=submit] {
-        padding:10px 30px; border:0; border-radius:50px;
-        background:$accent-color; color:$contrast-color; transition:.4s;
-        &:hover { background: color-mix(in srgb, $accent-color, transparent 25%); }
-      }
     }
   }
+
+.form-control:focus {
+    box-shadow: none !important;
+}
