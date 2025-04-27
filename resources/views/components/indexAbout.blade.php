@@ -33,8 +33,8 @@
                         <ul>
                             <li><i class="bi bi-chevron-right"></i> <strong>Expérience&nbsp;:</strong> <span>Applications sur-mesure, plateformes web, sites vitrines</span></li>
                             <li><i class="bi bi-chevron-right"></i> <strong>Collaboration&nbsp;:</strong> <span>Travail en équipe agile, support technique rapide</span></li>
-                            <li><i class="bi bi-chevron-right" style="text-decoration: none"></i> <strong>Email&nbsp;:</strong> <a href="mailto:lucas.dinnichert@example.com" style="text-decoration: none;  color: black !important">lucas.dinnichert@example.com</a></li>
-                            <li><i class="bi bi-chevron-right" style="text-decoration: none"></i> <strong>GitHub&nbsp;:</strong> <a href="https://github.com/DeDinnich" target="_blank" style="text-decoration: none;  color: black !important">github.com/DeDinnich</a></li>
+                            <li><i class="bi bi-chevron-right" style="text-decoration: none"></i> <strong>Email&nbsp;:</strong> <a href="mailto:lucas.dinnichert@example.com" style="text-decoration: none;  color: white !important">lucas.dinnichert@example.com</a></li>
+                            <li><i class="bi bi-chevron-right" style="text-decoration: none"></i> <strong>GitHub&nbsp;:</strong> <a href="https://github.com/DeDinnich" target="_blank" style="text-decoration: none;  color: white !important">github.com/DeDinnich</a></li>
                         </ul>
                     </div>
                 </div>

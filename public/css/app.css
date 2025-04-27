@@ -158,7 +158,6 @@ a:hover {
   }
 }
 
-/* components/_footer.scss */
 .footer {
   color: #e8e6f8;
   background: #14101a;
@@ -186,7 +185,7 @@ a:hover {
   font-family: "Poppins", sans-serif;
   justify-content: center;
 }
-.footer .wrapper .icon {
+.footer .icon {
   position: relative;
   background: linear-gradient(30deg, #af40ff, #5b42f3 50%, #00ddeb);
   border-radius: 50%;
@@ -202,7 +201,7 @@ a:hover {
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
-.footer .wrapper .tooltip {
+.footer .tooltip {
   position: absolute;
   top: 0;
   font-size: 14px;
@@ -213,44 +212,39 @@ a:hover {
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   opacity: 0;
   pointer-events: none;
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.3s ease;
 }
-.footer .wrapper .tooltip::before {
-  position: absolute;
+.footer .tooltip::before {
   content: "";
+  position: absolute;
   height: 8px;
   width: 8px;
   background: #fff;
   bottom: -3px;
   left: 50%;
   transform: translate(-50%) rotate(45deg);
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
-.footer .wrapper .icon:hover .tooltip {
+.footer .icon:hover .tooltip {
   top: -45px;
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
 }
-.footer .wrapper .icon:hover span,
-.footer .wrapper .icon:hover .tooltip {
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
-}
-.footer .wrapper .facebook:hover,
-.footer .wrapper .facebook:hover .tooltip,
-.footer .wrapper .facebook:hover .tooltip::before {
-  background: #1877f2;
+.footer .linkedin:hover,
+.footer .linkedin:hover .tooltip,
+.footer .linkedin:hover .tooltip::before {
+  background: #0077b5;
   color: #fff;
 }
-.footer .wrapper .twitter:hover,
-.footer .wrapper .twitter:hover .tooltip,
-.footer .wrapper .twitter:hover .tooltip::before {
-  background: #1da1f2;
+.footer .whatsapp:hover,
+.footer .whatsapp:hover .tooltip,
+.footer .whatsapp:hover .tooltip::before {
+  background: #25d366;
   color: #fff;
 }
-.footer .wrapper .instagram:hover,
-.footer .wrapper .instagram:hover .tooltip,
-.footer .wrapper .instagram:hover .tooltip::before {
+.footer .instagram:hover,
+.footer .instagram:hover .tooltip,
+.footer .instagram:hover .tooltip::before {
   background: #e4405f;
   color: #fff;
 }
@@ -310,7 +304,7 @@ a:hover {
 }
 .scroll-top i {
   font-size: 24px;
-  color: #0a0710;
+  color: #e8e6f8;
   transition: transform 0.3s;
 }
 .scroll-top.active {
@@ -565,21 +559,38 @@ section,
   margin-right: 10px;
 }
 
-/* modules/_stats.scss */
-.stats i {
-  background: #8f48eb;
-  color: #0a0710;
-  width: 54px;
-  height: 54px;
-  font-size: 24px;
-  border-radius: 50px;
-  display: inline-flex;
+.stats .stats-circle {
+  position: relative;
+  width: 78px;
+  height: 78px;
+  display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 10px;
+}
+.stats .stats-circle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #af40ff, #5b42f3, #00ddeb, #af40ff);
+  background-size: 400% 400%;
+  filter: blur(10px);
+  box-shadow: 0 0 20px rgba(175, 64, 255, 0.6), 0 0 40px rgba(91, 66, 243, 0.4), 0 0 60px rgba(0, 221, 235, 0.3);
+  animation: rotate-gradient 4s linear infinite;
+  z-index: 1;
+}
+.stats .stats-circle i {
+  position: relative;
+  z-index: 2;
+  font-size: 32px;
+  color: #e8e6f8;
+  background: none;
 }
 .stats .stats-item {
-  margin-top: 10px;
-  position: relative;
   text-align: center;
 }
 .stats .stats-item span {
@@ -591,10 +602,18 @@ section,
 .stats .stats-item p {
   font-size: 16px;
   color: color-mix(in srgb, #e8e6f8, transparent 50%);
-  padding: 0;
   margin: 0;
 }
 
+/* Animation de rotation */
+@keyframes rotate-gradient {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 /* modules/_skills.scss */
 .skills .progress {
   height: 60px;

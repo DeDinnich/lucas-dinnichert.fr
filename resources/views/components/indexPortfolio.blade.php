@@ -81,31 +81,31 @@
           </div><!-- End Portfolio Item -->
 
           <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-            <img src="img/masonry-portfolio/masonry-portfolio-7.jpg" class="img-fluid" alt="">
+            <img src="img/masonry-portfolio/epcmaintenance.png" class="img-fluid" alt="">
             <div class="portfolio-info">
               <h4>epc-maintenance</h4>
               <p>Ce projet est un site dédié à la maintenance de pompes à chaleur. Il offre des fonctionnalités telles que la gestion des interventions, le suivi des équipements, et une interface utilisateur intuitive pour les techniciens et les clients.</p>
-              <a href="img/masonry-portfolio/masonry-portfolio-7.jpg" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+              <a href="img/masonry-portfolio/epcmaintenance.png" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
               <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
             </div>
           </div><!-- End Portfolio Item -->
 
           <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-            <img src="img/masonry-portfolio/masonry-portfolio-8.jpg" class="img-fluid" alt="">
+            <img src="img/masonry-portfolio/techcalendar.png" class="img-fluid" alt="">
             <div class="portfolio-info">
               <h4>TechCalendar</h4>
               <p>Calendrier interactif et prise de rendez-vous pour des techniciens itinérants en France. Cette application permet de planifier efficacement les interventions, de gérer les disponibilités et d'optimiser les déplacements pour une meilleure productivité.</p>
-              <a href="img/masonry-portfolio/masonry-portfolio-8.jpg" title="mobile 3" data-gallery="portfolio-gallery-mobile" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+              <a href="img/masonry-portfolio/techcalendar.png" title="mobile 3" data-gallery="portfolio-gallery-mobile" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
               <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
             </div>
           </div><!-- End Portfolio Item -->
 
           <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-other">
-            <img src="img/masonry-portfolio/masonry-portfolio-9.jpg" class="img-fluid" alt="">
+            <img src="img/masonry-portfolio/domaine.png" class="img-fluid" alt="">
             <div class="portfolio-info">
               <h4>Réseau d'entreprise</h4>
               <p>Ce projet met en place un domaine multi-site avec des règles de sécurité avancées, incluant la gestion des accès, la protection contre les intrusions et le chiffrement des données pour garantir la confidentialité et l'intégrité des informations.</p>
-              <a href="img/masonry-portfolio/masonry-portfolio-9.jpg" title="other 2" data-gallery="portfolio-gallery-other" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+              <a href="img/masonry-portfolio/domaine.png" title="other 2" data-gallery="portfolio-gallery-other" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
               <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
             </div>
           </div><!-- End Portfolio Item -->
